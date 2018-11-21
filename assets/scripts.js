@@ -21,9 +21,9 @@
   $(window).bind('hashchange', function() {
     var hash = document.location.hash;
     var element = $(hash);
-    var parents = element.parents(":hidden");  
+    var parents = element.parents(":hidden");
 
-    turnMenuItemById(hash);  
+    turnMenuItemById(hash);
 
     $.each(parents, function(index, parent) {
       var id = $(parent).attr('id');
@@ -48,11 +48,33 @@
   $(window).trigger('hashchange');
 
 
-  $('.b-model__close-btn').click(function() {
-    $(this)
-      .parents('.b-modal')
-      .removeClass('active');
+  //Close popup by click
+   $('.b-model__close-btn').click(function () {
+       closePopup();
+   });
 
-    document.location.hash = '';
-  });
+   //Close popup by press Escape
+  document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      var isEscape = false;
+      if ("key" in evt) {
+          isEscape = (evt.key == "Escape" || evt.key == "Esc");
+      } else {
+          isEscape = (evt.keyCode == 27);
+      }
+      if (isEscape) {
+          console.log("ESC");
+          closePopup();
+      }
+  };
+
+  function closePopup() {
+      console.log("close");
+
+      $('.b-model__close-btn')
+          .parents('.b-modal')
+          .removeClass('active');
+
+      document.location.hash = '';
+  }
 })();
