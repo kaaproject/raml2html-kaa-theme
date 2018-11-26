@@ -1,7 +1,8 @@
 {
-  "name": "raml2html-kaa-theme",
+  "name": "@kaaiot/raml2html-kaa-theme",
   "description": "Kaa theme for raml2html",
-  "version": "0.1.5",
+  "access": "public",
+  "version": "0.2.9",
   "author": {
     "name": "",
     "email": ""
@@ -23,7 +24,9 @@
     "index.nunjucks",
     "resource.nunjucks",
     "item.nunjucks",
-    "examples.nunjucks"
+    "examples.nunjucks",
+    "assets/scripts.js",
+    "assets/styles.css"
   ],
   "engines": {
     "node": ">=4"
