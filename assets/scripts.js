@@ -68,6 +68,13 @@
       }
   };
 
+    //Close popup by clicking in non-popup area
+    $('.b-modal').click(function () {
+        closePopup();
+    }).children().click(function (e) {
+        return false;
+    });
+
   function closePopup() {
       console.log("close");
 
