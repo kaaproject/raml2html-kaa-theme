@@ -68,16 +68,15 @@
       }
   };
 
-    //Close popup by clicking in non-popup area
-    $('.b-modal').click(function () {
-        closePopup();
-    }).children().click(function (e) {
-        return false;
-    });
+  //Close popup by clicking in non-popup area
+  $('.b-modal').click(function () {
+      // Workaround to prevent closing popup when clicking on children.
+      if($(event.target).is(".b-modal") ) {
+          closePopup();
+      }
+  });
 
   function closePopup() {
-      console.log("close");
-
       $('.b-model__close-btn')
           .parents('.b-modal')
           .removeClass('active');
