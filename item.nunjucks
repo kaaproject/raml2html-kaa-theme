@@ -3,7 +3,11 @@
 
   {% if not item.structuredValue %}
     <em>
-      {%- if item.required -%}required {% endif -%}
+      {%- if item.required -%}
+        required
+      {%- else -%}
+        optional
+      {% endif -%}
       (
       {%- if item.enum -%}
         {%- if item.enum.length === 1 -%}
