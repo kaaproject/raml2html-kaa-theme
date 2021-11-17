@@ -39,7 +39,7 @@
             {% if method.securedBy.length %}
               {% for securedBy in method.securedBy %}
                 {% if securedBy %}
-                  <div class="alert alert-warning">
+                  <div class="alert alert-warning security_header">
                     {% set securityScheme = securitySchemes[securedBy.schemeName] %}
                     <span class="glyphicon glyphicon-lock" title="Authentication required"></span>
                     Secured by <b>{{securityScheme.displayName}}</b>
@@ -48,6 +48,14 @@
                       <ul>
                         {% for scope in securedBy.scopes %}
                           <li>{{scope}}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    {% if securedBy.actions %}
+                      with actions:
+                      <ul>
+                        {% for action in securedBy.actions %}
+                          <li>{{action}}</li>
                         {% endfor %}
                       </ul>
                     {% endif %}
