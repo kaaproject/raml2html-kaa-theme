@@ -64,7 +64,7 @@
                       </ul>
                     {% endif %}
                     {% if securedBy.noactions %}
-                       (no action permissions required).
+                       (authentication only, no authorization required).
                     {% endif %}
                     {% if securityScheme.description %}
                       {% markdown %}
