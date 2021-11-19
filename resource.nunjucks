@@ -42,7 +42,11 @@
                   <div class="alert alert-warning security_header">
                     {% set securityScheme = securitySchemes[securedBy.schemeName] %}
                     <span class="glyphicon glyphicon-lock" title="Authentication required"></span>
-                    Secured by <b>{{securityScheme.displayName}}</b>
+                     {% if securedBy.noactions %}
+                      Secured with <b>{{securityScheme.displayName}}</b>
+                      {% else %}
+                      Secured by <b>{{securityScheme.displayName}}</b>
+                      {% endif %}
                     {% if securedBy.scopes %}
                       with scopes:
                       <ul>
@@ -58,6 +62,9 @@
                           <li>{{action}}</li>
                         {% endfor %}
                       </ul>
+                    {% endif %}
+                    {% if securedBy.noactions %}
+                       (authentication only, no authorization required).
                     {% endif %}
                     {% if securityScheme.description %}
                       {% markdown %}

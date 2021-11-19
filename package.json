@@ -2,7 +2,7 @@
   "name": "@kaaiot/raml2html-kaa-theme",
   "description": "Kaa theme for raml2html",
   "access": "public",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "author": {
     "name": "",
     "email": ""
